@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Include angular and other plugins-->
+    <script src = "node_modules/angular/angular.js"></script>
+    <script src = "node_modules/angular-resource/angular-resource.js"></script>
+    <script src = "js/filesModelDirective.js"></script>
+    <!--Include our app-->
+    <script src="js/app.js"></script>
+    <script src="js/images.rest.js"></script>
+    <title>Hello World!</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+<div ng-app = "imageuploadFrontendApp" ng-controller = "MainCtrl">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form" name="form" ng-submit="uploadImage()">
+            <input type="file" files-model="newImage.image">
+            <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    <div ng-repeat = "image in images track by image.pk">
+        <img ng-src="{{ image.image }}" width="800">
+    </div>
+</div>
+
+</body>
+</html>
